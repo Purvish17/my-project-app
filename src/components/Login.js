@@ -1,14 +1,7 @@
-<<<<<<< Updated upstream
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
-=======
-import React, { useState, useEffect } from 'react';
-import { googleLogout, useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button';
->>>>>>> Stashed changes
 function Login() {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
@@ -50,7 +43,6 @@ function Login() {
       <br />
       {profile ? (
         <div>
-<<<<<<< Updated upstream
           <img src={profile.picture} alt=" profil" />
           <h3>User Logged in</h3>
           <p>Name: {profile.name}</p>
@@ -58,25 +50,6 @@ function Login() {
           <br />
           <br />
           <button onClick={logOut}>Log out</button>
-=======
-            <h2>React Google Login</h2>
-            <br />
-            <br />
-            {profile ? (
-                <div>
-                    <img src={profile.picture} alt=" profile" />
-                    <h3>User Logged in</h3>
-                    <p>Name: {profile.name}</p>
-                    <p>Email Address: {profile.email}</p>
-                    <br />
-                    <br />
-                    <button onClick={logOut}>Log out</button>
-                    
-                </div>
-            ) : (
-                <Button variant="primary" onClick={() => login()}>Sign in with Google </Button>
-            )}
->>>>>>> Stashed changes
         </div>
       ) : (
         <button onClick={() => login()}>Sign in with Google </button>

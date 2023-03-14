@@ -1,10 +1,6 @@
 import useAxios from "axios-hooks";
-<<<<<<< Updated upstream
-import Table from "react-bootstrap/Table";
-=======
 import { Button } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
->>>>>>> Stashed changes
 // const baseURL =
 /*"https://jsonplaceholder.typicode.com/posts";*/
 
@@ -72,14 +68,9 @@ function DataPre() {
   );
   return (
     <div>
-<<<<<<< Updated upstream
-      <button onClick={refetch}>Refetch</button>
-      <Table bordered hover responsive="sm">
-=======
       <Button variant="outline-primary" onClick={refetch}>Refetch</Button>
       <Table  hover responsive="sm" > 
       
->>>>>>> Stashed changes
         <thead>
           <tr style={{color:"orange"}}>
             <th align="right">#</th>
@@ -107,9 +98,10 @@ function DataPre() {
             );
           })}
         </tbody>
-      </Table>
+    </Table>
     </div>
   );
 }
 
 export default DataPre;
+

@@ -9,23 +9,13 @@ const Home = () => {
     <>
       {/* <div>Home</div>
     <Link to="/about">About</Link> */}
-<<<<<<< Updated upstream
-      <h3>welcome to homepage</h3>
+      {/* <h3>welcome to homepage</h3> */}
 
       <h4> Cryptocurrency Prices by Market Cap</h4>
       {/* <BasicExample/> */}
 
       <DataPre />
       {/* <Table striped bordered hover size="sm">
-=======
-    {/* <h3>welcome to homepage</h3> */}
-    
-     <h4> Cryptocurrency Prices by Market Cap</h4>
-     {/* <BasicExample/> */}
-     
-     <DataPre/>
-    {/* <Table striped bordered hover size="sm">
->>>>>>> Stashed changes
       <thead>
         <tr>
           <th>#</th>
