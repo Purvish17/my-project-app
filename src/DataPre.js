@@ -1,5 +1,10 @@
 import useAxios from "axios-hooks";
+<<<<<<< Updated upstream
 import Table from "react-bootstrap/Table";
+=======
+import { Button } from "react-bootstrap";
+import Table from 'react-bootstrap/Table';
+>>>>>>> Stashed changes
 // const baseURL =
 /*"https://jsonplaceholder.typicode.com/posts";*/
 
@@ -10,8 +15,9 @@ function DataPre() {
   const [{ data, loading, error }, refetch] = useAxios(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
   );
-
-  // useEffect(() => {
+//  setInterval(refetch,90000);
+  
+  // // useEffect(() => {
   //   axios
   //     .get(baseURL)
   //     .then((response) => {
@@ -66,11 +72,17 @@ function DataPre() {
   );
   return (
     <div>
+<<<<<<< Updated upstream
       <button onClick={refetch}>Refetch</button>
       <Table bordered hover responsive="sm">
+=======
+      <Button variant="outline-primary" onClick={refetch}>Refetch</Button>
+      <Table  hover responsive="sm" > 
+      
+>>>>>>> Stashed changes
         <thead>
-          <tr>
-            <th align="right">Symbol</th>
+          <tr style={{color:"orange"}}>
+            <th align="right">#</th>
             <th>Name</th>
             <th>Current Price</th>
             <th>24h </th>
@@ -79,15 +91,18 @@ function DataPre() {
           </tr>
         </thead>
         <tbody>
-          {data.map((list) => {
+          {data.map((list,index =0) => {
+               const profit = list.price_change_percentage_24h > 0;
+               index++;
             return (
               <tr>
-                <td>{list.symbol}</td>
-                <td>{list.name}</td>
-                <td>{list.current_price}</td>
-                <td>{list.price_change_percentage_24h}%</td>
-                <td>{list.market_cap}</td>
-                <td>{list.total_volume}</td>
+                <td style={{ width:"5%"}}>{index}</td>
+                {/* <td  style={{width:"3%"}}></td> */}
+                <td style={{ width:"20%"}}>{<img src={list.image}  alt="symbol"height="30" />} {list.name}</td>
+                <td style={{ width:"14%"}}>${list.current_price}</td>
+                <td style={{color:profit>0? "rgb(14,203,129)":"red" }}>{list.price_change_percentage_24h}%</td>
+                <td>${list.market_cap}</td>
+                <td>${list.total_volume}</td>
               </tr>
             );
           })}
