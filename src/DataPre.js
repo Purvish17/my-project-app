@@ -11,6 +11,7 @@ function DataPre() {
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
   );
 
+  setInterval(refetch, 180000);
   // useEffect(() => {
   //   axios
   //     .get(baseURL)
@@ -66,7 +67,7 @@ function DataPre() {
   );
   return (
     <div>
-      <button onClick={refetch}>Refetch</button>
+      {/* <button onClick={refetch}>Refetch</button> */}
       <Table bordered hover responsive="sm">
         <thead>
           <tr>
@@ -79,10 +80,11 @@ function DataPre() {
           </tr>
         </thead>
         <tbody>
-          {data.map((list) => {
+          {data.map((list, index = 0) => {
+            index++;
             return (
               <tr>
-                <td>{list.symbol}</td>
+                <td>{index}</td>
                 <td>{list.name}</td>
                 <td>{list.current_price}</td>
                 <td>{list.price_change_percentage_24h}%</td>
