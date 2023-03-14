@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 
 const client = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/posts" 
+  baseURL: "https://jsonplaceholder.typicode.com/posts",
 });
 const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -21,39 +21,37 @@ export default function App() {
   }, []);
 
   function deletePost() {
-    client
-      .delete("/1")
-      .then(() => {
-        alert("Post deleted!");
-        setPost(null)
-      });
+    client.delete("/1").then(() => {
+      alert("Post deleted!");
+      setPost(null);
+    });
   }
 
-  if (!post) return "No post!"
-  
+  if (!post) return "No post!";
+
   function updatePost() {
     axios
       .put(`${baseURL}/1`, {
         title: "Hello World!",
-        body: "This is an updated post."
-      })
-      .then((response) => {
-        setPost(response.data);
-      });
-  }
-  
-  function createPost() {
-    axios
-      .post(baseURL, {
-        title: "Hello World!",
-        body: "This is a new post."
+        body: "This is an updated post.",
       })
       .then((response) => {
         setPost(response.data);
       });
   }
 
-  if (!post) return "No post!"
+  function createPost() {
+    axios
+      .post(baseURL, {
+        title: "Hello World!",
+        body: "This is a new post.",
+      })
+      .then((response) => {
+        setPost(response.data);
+      });
+  }
+
+  if (!post) return "No post!";
 
   return (
     <div>

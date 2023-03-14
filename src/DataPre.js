@@ -1,5 +1,5 @@
 import useAxios from "axios-hooks";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 // const baseURL =
 /*"https://jsonplaceholder.typicode.com/posts";*/
 
@@ -67,8 +67,7 @@ function DataPre() {
   return (
     <div>
       <button onClick={refetch}>Refetch</button>
-      <Table  bordered hover responsive="sm" > 
-      
+      <Table bordered hover responsive="sm">
         <thead>
           <tr>
             <th align="right">Symbol</th>
@@ -93,10 +92,9 @@ function DataPre() {
             );
           })}
         </tbody>
-    </Table>
+      </Table>
     </div>
   );
 }
 
 export default DataPre;
-
