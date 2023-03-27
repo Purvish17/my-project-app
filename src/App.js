@@ -6,10 +6,13 @@ import MyNavbar from "./components/MyNavbar";
 import Price from "./components/Price";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import CoinDetail from "./components/CoinDetail";
+// import CoinPage from "./components/CoinPage";
+
 function App() {
   return (
     <>
-      {" "}
+      
       <MyNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,6 +20,9 @@ function App() {
         <Route path="/pricing" element={<Price />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/coins/:id" element={<CoinDetail/>} />
+    
+ 
       </Routes>
     </>
   );

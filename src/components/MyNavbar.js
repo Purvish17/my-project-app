@@ -11,18 +11,18 @@ const MyNavbar = () => {
     <>
       <Navbar bg="dark" variant="dark" expand="sm">
         <Container>
-          <Navbar.Brand>
+          {/* <Navbar.Brand>
             <img
               alt=""
-              src="./crypto.png"
+              // src="./crypto.png"
               width="50"
               height="50"
               className="d-inline-block align-top"
             />{" "}
-          </Navbar.Brand>
+          </Navbar.Brand> */}
           {/* <NavbarToggle aria-controls='my-nav'/> */}
 
-          <Navbar.Brand>Crypto currency</Navbar.Brand>
+          <Navbar.Brand>Crypto Currency</Navbar.Brand>
           <NavbarToggle aria-controls="my-nav" />
           <Navbar.Collapse id="my-nav">
             <Nav className="me-auto fw-bold">
@@ -45,6 +45,11 @@ const MyNavbar = () => {
               <Nav.Link as={Link} to="/pricing">
                 Price
               </Nav.Link>
+              {/* <Nav.Link as={Link} to="/SingleCoin">
+                singlecoin
+              </Nav.Link>
+             */}
+            
               {/* <Nav.Link to="/pricing">Price</Nav.Link> */}
               {/* <Nav.Link  as={Link} to="/signup">Sign Up</Nav.Link> 
              <Nav.Link  as={Link} to="/Login" type="button">Login</Nav.Link>  */}
