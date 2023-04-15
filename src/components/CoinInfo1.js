@@ -1,81 +1,72 @@
-// import React from 'react'
+import { useParams } from "react-router-dom";
+import useAxios from "axios-hooks";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import { HistoricalChart } from "./api";
 
-// const CoinInfo1 = () => {
-//   return (
-//     <div>CoinInfo1</div>
-//   )
-// }
 
-// export default CoinInfo1
-// import { useEffect, useState } from 'react'
-// import { useParams } from 'react-router-dom'
-// import { Line } from 'react-chartjs-2';
-
-// import axios from 'axios';
-// import { HistoricalChart1 } from './api';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
 
 
+const CoinInfo1 = () => {
+  const { id } = useParams();
+  const { response } = useAxios(HistoricalChart(id));
+  
+  if(!response) {
+    return (
+      <>
+      <h1>Loading..........</h1>
+      </>
+    )
+  }
+  const coinChartData = response.prices.map(value => ({ x: value[0], y: value[1].toFixed(3)}));
+  console.log(coinChartData);
+  const options = {
+    responsive: true
+  }
+  const data = {
+    // labels: coinChartData.map(value => ),
+    labels: response.map((coin) => {
+        let date = new Date(coin[0]);
+       
+        return date.toLocaleDateString();
+      }),
+    datasets: [
+      {
+        fill: true,
+        label: id,
+        data: coinChartData.map(val => val.y),
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      }
+    ]
+  }
 
-// const CoinInfo1 = () => {
-//   const {id}= useParams();
-//   const[coin,setcoin]=useState();
-//   const [days, setDays] = useState(1);
-//   const fetchCoin = async ()=>{
-//     const {data }=await axios.get(HistoricalChart1(id,days));
+  return (
+    <div>
+      <Line options={options} data={data} />
 
-//    setcoin(data.prices);
-//   }; 
-// //  console.log("data",coine);
-// // console.log("data1",coin);
-// //  const coinChartData = data.map(value => ({ x: value[0], y: value[1]}));
-// // console.log("data",coinChartData)
-//   useEffect( () =>{ fetchCoin();},[]);
-//   return(
-//     <>
-//     <div> hello here i show chart</div>
-//     const data1={
-//     labels: ['10','23'],
-    
-//     datasets:[
-//       {
-    
-//         fill:true,
-//         label:id,
-//         data:['10','15'],
-        
-//       }
-//     ]
-//   }
-//     {/* <Line
-//               data={{
-//                 labels: coin.prices.map((coin) => {
-//                   let date = new Date(coin[0]);
-//                   let time =
-//                     date.getHours() > 12
-//                       ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-//                       : `${date.getHours()}:${date.getMinutes()} AM`;
-//                   return days === 1 ? time : date.toLocaleDateString();
-//                 }),
+    </div>
+  )
+}
 
-//             //     datasets: [
-//             //       {
-//             //         data: coin.map((coin) => coin[1]),
-//             //         label: `Price ( Past ${days} Days ) in usd`,
-//             //         borderColor: "#EEBC1D",
-//             //       },
-//             //     ],
-//             //   }}
-//             //   options={{
-//             //     elements: {
-//             //       point: {
-//             //         radius: 1,
-//             //       },
-//             //     },
-//               }} */}
-//             {/* /> */}
- 
-//     </>
-//   );
-
-// }
-// export default CoinInfo1
+export default CoinInfo1;

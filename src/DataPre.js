@@ -1,19 +1,18 @@
 import useAxios from "axios-hooks";
+
 import { Button } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
-import { useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import { useState } from "react";
+
 // import { Link } from 'react-router-dom'
 
 // const baseURL =
 /*"https://jsonplaceholder.typicode.com/posts";*/
 
 function DataPre() {
-  // const [post, setPost] = useState(null);
-  // const [error, setError] = useState(null);
+  
 
-  // function handleClick() {
-  //   history.push(`/coins/${list.id}`);
-  // }
 
   
   const [{ data, loading, error }, refetch] = useAxios(
@@ -21,20 +20,32 @@ function DataPre() {
   );
   const navigate = useNavigate();
 
+  const [search, setSearch] = useState("");
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  // if (!post) return "No post!";
+console.log(data);
 
-  console.log(
-    "Data :",
-    data.map((data) => {
-      return data;
-    })
-  );
+// useEffect(() => {
+//   setInterval(DataPre, 60000);
+// }, []);
   return (
-    <div>
-      <Button variant="outline-primary" onClick={refetch}>Refetch</Button>
+    <div className="App">
+      <h1>All Cryptocurrencies</h1>
+      {/* <Button variant="outline-primary" onClick={refetch}>Refetch</Button> */}
+      <input
+        type="text"
+        placeholder="Search cryptocurrency..."
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      />
+     
+    <div  style={{
+      paddingLeft: '20px',
+      paddingRight:'20px',
+    }}>
+ 
    
       <Table  hover responsive="sm"    style={{paddingLeft: "20"}}> 
       
@@ -46,16 +57,20 @@ function DataPre() {
             <th>24h </th>
             <th>Market Cap</th>
             <th>Volume</th>
+         
           </tr>
         </thead>
         <tbody>
-          {
-        
-          data.map((list,index =0) => {
+      {data
+          .filter((val) => {
+            return val.name.toLowerCase().includes(search.toLowerCase());
+          })
+          .map((list,index =0) => {
                const profit = list.price_change_percentage_24h > 0;
               
                index++;
             return (
+                
               <tr>
                 <td style={{ width:"5%"}}>{index}</td>
                 {/* <td  style={{width:"3%"}}></td> */}
@@ -63,17 +78,23 @@ function DataPre() {
                 {/* onClick={() => navigate(`coindetail`)} */}
                 <td style={{ width:"14%"}}>${list.current_price}</td>
                 <td style={{color:profit>0? "rgb(14,203,129)":"red" }}>{list.price_change_percentage_24h}%</td>
-                <td>${list.market_cap}</td>
+                <td >${list.market_cap}</td>
                 <td>${list.total_volume}</td>
+            
               </tr>
             );
           })}
         </tbody>
     </Table>
     {/* {<img src='https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880'  alt="symbol"height="240" />} */}
+
+        
     </div>
+    </div>
+    
   );
 }
+
 
 export default DataPre;
 

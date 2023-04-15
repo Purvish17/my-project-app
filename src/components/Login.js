@@ -38,23 +38,27 @@ function Login() {
 
   return (
     <div>
-      <h2>React Google Login</h2>
+      <h2 data-testid='login-header'>React Google Login</h2>
   
       <br />
-      {profile ? (
-        <div>
-          <img src={profile.picture} alt="user " />
+      {profile? (
+   
+   <div>
+   <img src={profile.picture}  alt="user" />
 
-         <p> Name: {profile.name}</p>
-          <p>Email Address: {profile.email}</p> 
-          <br />
-          <br />
-          <button onClick={logOut}>Log out</button>
-        </div>
+  <p data-testid='name'> Name: {profile.name}</p>
+   <p data-testid='email'>Email Address: {profile.email}</p> 
+   <br />
+   <br />
+   <button onClick={logOut}>Log out</button>
+ </div>
+        
       ) : (
-        <button onClick={() => login()}>Sign in with Google </button>
+     
+     <button onClick={() => login()}>Sign in with Google </button>
       )}
     </div>
   );
 }
 export default Login;
+

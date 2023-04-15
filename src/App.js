@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import MyNavbar from "./components/MyNavbar";
@@ -7,13 +7,13 @@ import Price from "./components/Price";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import CoinDetail from "./components/CoinDetail";
-// import CoinPage from "./components/CoinPage";
 
 function App() {
   return (
     <>
-      
+      <BrowserRouter>
       <MyNavbar />
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -24,6 +24,7 @@ function App() {
     
  
       </Routes>
+      </BrowserRouter>
     </>
   );
 }

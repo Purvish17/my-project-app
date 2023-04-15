@@ -2,13 +2,14 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 // import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 const MyNavbar = () => {
   return (
-    <>
+    <div data-testid='navbar'>
       <Navbar bg="dark" variant="dark" expand="sm">
         <Container>
           {/* <Navbar.Brand>
@@ -56,6 +57,19 @@ const MyNavbar = () => {
               {/* style="float:right" */}
             </Nav>
           </Navbar.Collapse>
+          {/* <Nav>
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title="Currency"
+              menuVariant="dark"
+            >
+              <NavDropdown.Item  value={"INR"}>INR</NavDropdown.Item>
+              <NavDropdown.Item value={"USD"} >
+                USD
+              </NavDropdown.Item>
+             
+            </NavDropdown>
+          </Nav> */}
           {/* <Nav  style={{marginRight:+ 'em'}} >
             <Nav.Link  as={Link} to="/signup">Sign Up</Nav.Link>
             <Nav.Link as={Link} to="/Login" >
@@ -64,7 +78,7 @@ const MyNavbar = () => {
           </Nav> */}
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 

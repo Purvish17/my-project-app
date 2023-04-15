@@ -8,17 +8,15 @@ import DataPre from "../DataPre";
 
 const Home = () => {
   return (
-    <>
-      {/* <div>Home</div>
-    <Link to="/about">About</Link> */}
-      {/* <h3>welcome to homepage</h3> */}
+    <div data-testid='home-component'>
 
-      <h4> Cryptocurrency Prices by Market Cap</h4>
+
+      <h4  data-testid ="home-title"> Cryptocurrency Prices by Market Cap</h4>
 
 
       <DataPre />
     
-    </>
+    </div>
   );
 };
 

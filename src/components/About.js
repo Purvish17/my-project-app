@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div>
       <i>
-        <h3>This site gives information about cryptocurrency prices</h3>
+        <h3 data-testid='about-title'>This site gives information about cryptocurrency prices</h3>
       </i>
     </div>
   );
