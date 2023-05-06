@@ -5,16 +5,21 @@ import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
+//module.exports = require('./lib/axios');
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
+// import { Provider } from "react-redux";
+// import store from "./components/Redux/store";
+// import Counter from "./components/Redux/GlobalState";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <GoogleOAuthProvider clientId="131829855050-i6i0nlsiouv2n259vkc8v6tipr7lbb6e.apps.googleusercontent.com">
-  
-      <App /> 
+
+      <App />
+      {/* <Counter /> */}
+
 
   </GoogleOAuthProvider>
 );

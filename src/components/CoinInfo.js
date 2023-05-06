@@ -25,10 +25,6 @@ ChartJS.register(
   Filler,
   Legend
 );
-
-
-
-
 const CoinInfo = () => {
   const {id}= useParams();
   const[coin,setcoin]=useState();
@@ -41,7 +37,6 @@ if(!data){
 }
 const coinChartData = data.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
     setcoin(coinChartData);
-  
   };  
   // console.log("hii",coin);
   const options={responsive:true}
@@ -70,7 +65,7 @@ const coinChartData = data.prices.map(value => ({ x: value[0], y: value[1].toFix
   }
   // console.log("hii", coin.prices);
  
-  useEffect( () =>{ fetchCoin();},[]);
+  // useEffect( () =>{ fetchCoin();},[]);
   return(
     <>
   {/* {data.price.map(coin)} */}

@@ -2,9 +2,7 @@ import React from "react";
 import DataPre from "../DataPre";
 
 
-// import BasicExample from './BasicExample'
-// import Data from './Data'
-// import Table from 'react-bootstrap/Table';
+
 
 const Home = () => {
   return (
